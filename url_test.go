@@ -1,4 +1,4 @@
-package main
+package gron
 
 import (
 	"testing"
@@ -17,7 +17,7 @@ func TestValidURL(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		have := validURL(test.url)
+		have := ValidURL(test.url)
 		if have != test.want {
 			t.Errorf("Want %t for validURL(%s); have %t", test.want, test.url, have)
 		}

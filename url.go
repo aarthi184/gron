@@ -1,4 +1,4 @@
-package main
+package gron
 
 import (
 	"bufio"
@@ -10,12 +10,12 @@ import (
 	"time"
 )
 
-func validURL(url string) bool {
+func ValidURL(url string) bool {
 	r := regexp.MustCompile("(?i)^http(?:s)?://")
 	return r.MatchString(url)
 }
 
-func getURL(url string, insecure bool) (io.Reader, error) {
+func GetURL(url string, insecure bool, gronVersion string) (io.Reader, error) {
 	tr := &http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: insecure},
 	}
