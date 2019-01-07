@@ -10,7 +10,7 @@
 //   String ::= '"' (UnescapedRune | ("\" (["\/bfnrt] | ('u' Hex))))* '"'
 //   UnescapedRune ::= [^#x0-#x1f"\]
 
-package main
+package gron
 
 import (
 	"encoding/json"

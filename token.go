@@ -1,4 +1,4 @@
-package main
+package gron
 
 import (
 	"bytes"
@@ -55,18 +55,18 @@ type sprintFn func(...interface{}) string
 
 // mapping of token types to the appropriate color sprintFn
 var sprintFns = map[tokenTyp]sprintFn{
-	typBare:        bareColor.SprintFunc(),
-	typNumericKey:  numColor.SprintFunc(),
-	typQuotedKey:   strColor.SprintFunc(),
-	typLBrace:      braceColor.SprintFunc(),
-	typRBrace:      braceColor.SprintFunc(),
-	typString:      strColor.SprintFunc(),
-	typNumber:      numColor.SprintFunc(),
-	typTrue:        boolColor.SprintFunc(),
-	typFalse:       boolColor.SprintFunc(),
-	typNull:        boolColor.SprintFunc(),
-	typEmptyArray:  braceColor.SprintFunc(),
-	typEmptyObject: braceColor.SprintFunc(),
+	typBare:        BareColor.SprintFunc(),
+	typNumericKey:  NumColor.SprintFunc(),
+	typQuotedKey:   StrColor.SprintFunc(),
+	typLBrace:      BraceColor.SprintFunc(),
+	typRBrace:      BraceColor.SprintFunc(),
+	typString:      StrColor.SprintFunc(),
+	typNumber:      NumColor.SprintFunc(),
+	typTrue:        BoolColor.SprintFunc(),
+	typFalse:       BoolColor.SprintFunc(),
+	typNull:        BoolColor.SprintFunc(),
+	typEmptyArray:  BraceColor.SprintFunc(),
+	typEmptyObject: BraceColor.SprintFunc(),
 }
 
 // isValue returns true if the token is a valid value type

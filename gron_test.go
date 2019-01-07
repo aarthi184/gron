@@ -1,4 +1,4 @@
-package main
+package gron
 
 import (
 	"bytes"
@@ -32,10 +32,10 @@ func TestGron(t *testing.T) {
 		}
 
 		out := &bytes.Buffer{}
-		code, err := gron(in, out, optMonochrome)
+		code, err := Gron(in, out, OptMonochrome)
 
-		if code != exitOK {
-			t.Errorf("want exitOK; have %d", code)
+		if code != ExitOK {
+			t.Errorf("want ExitOK; have %d", code)
 		}
 		if err != nil {
 			t.Errorf("want nil error; have %s", err)
@@ -71,10 +71,10 @@ func TestGronStream(t *testing.T) {
 		}
 
 		out := &bytes.Buffer{}
-		code, err := gronStream(in, out, optMonochrome)
+		code, err := GronStream(in, out, OptMonochrome)
 
-		if code != exitOK {
-			t.Errorf("want exitOK; have %d", code)
+		if code != ExitOK {
+			t.Errorf("want ExitOK; have %d", code)
 		}
 		if err != nil {
 			t.Errorf("want nil error; have %s", err)
@@ -109,10 +109,10 @@ func TestLargeGronStream(t *testing.T) {
 		}
 
 		out := &bytes.Buffer{}
-		code, err := gronStream(in, out, optMonochrome)
+		code, err := GronStream(in, out, OptMonochrome)
 
-		if code != exitOK {
-			t.Errorf("want exitOK; have %d", code)
+		if code != ExitOK {
+			t.Errorf("want ExitOK; have %d", code)
 		}
 		if err != nil {
 			t.Errorf("want nil error; have %s", err)
@@ -157,10 +157,10 @@ func TestUngron(t *testing.T) {
 		}
 
 		out := &bytes.Buffer{}
-		code, err := ungron(in, out, optMonochrome)
+		code, err := Ungron(in, out, OptMonochrome)
 
-		if code != exitOK {
-			t.Errorf("want exitOK; have %d", code)
+		if code != ExitOK {
+			t.Errorf("want ExitOK; have %d", code)
 		}
 		if err != nil {
 			t.Errorf("want nil error; have %s", err)
@@ -204,10 +204,10 @@ func TestGronJ(t *testing.T) {
 		}
 
 		out := &bytes.Buffer{}
-		code, err := gron(in, out, optMonochrome|optJSON)
+		code, err := Gron(in, out, OptMonochrome|OptJSON)
 
-		if code != exitOK {
-			t.Errorf("want exitOK; have %d", code)
+		if code != ExitOK {
+			t.Errorf("want ExitOK; have %d", code)
 		}
 		if err != nil {
 			t.Errorf("want nil error; have %s", err)
@@ -243,10 +243,10 @@ func TestGronStreamJ(t *testing.T) {
 		}
 
 		out := &bytes.Buffer{}
-		code, err := gronStream(in, out, optMonochrome|optJSON)
+		code, err := GronStream(in, out, OptMonochrome|OptJSON)
 
-		if code != exitOK {
-			t.Errorf("want exitOK; have %d", code)
+		if code != ExitOK {
+			t.Errorf("want ExitOK; have %d", code)
 		}
 		if err != nil {
 			t.Errorf("want nil error; have %s", err)
@@ -290,10 +290,10 @@ func TestUngronJ(t *testing.T) {
 		}
 
 		out := &bytes.Buffer{}
-		code, err := ungron(in, out, optMonochrome|optJSON)
+		code, err := Ungron(in, out, OptMonochrome|OptJSON)
 
-		if code != exitOK {
-			t.Errorf("want exitOK; have %d", code)
+		if code != ExitOK {
+			t.Errorf("want ExitOK; have %d", code)
 		}
 		if err != nil {
 			t.Errorf("want nil error; have %s", err)
@@ -327,7 +327,7 @@ func BenchmarkBigJSON(b *testing.B) {
 			b.Fatalf("failed to rewind input: %s", err)
 		}
 
-		_, err := gron(in, out, optMonochrome|optNoSort)
+		_, err := Gron(in, out, OptMonochrome|OptNoSort)
 		if err != nil {
 			b.Fatalf("failed to gron: %s", err)
 		}
