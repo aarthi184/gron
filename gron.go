@@ -9,8 +9,8 @@ import (
 	"sort"
 
 	"github.com/fatih/color"
-	"github.com/pkg/errors"
 	"github.com/nwidger/jsoncolor"
+	"github.com/pkg/errors"
 )
 
 // Output colors
@@ -270,4 +270,3 @@ func colorizeJSON(src []byte) ([]byte, error) {
 	}
 	return out.Bytes(), nil
 }
-
